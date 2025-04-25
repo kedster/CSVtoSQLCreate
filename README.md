@@ -8,58 +8,15 @@
 
 This tool is built to streamline the process of database initialization from spreadsheet formats used by business analysts, data engineers, and software developers. It interprets table schema and relationship metadata directly from CSV files using:
 
-- **Row 1**: Column names
-- **Row 2**: Key indicators
-  - `1` = Primary Key
-  - `2` = Foreign Key
+- **Row 1**: Column names  
+- **Row 2**: Key indicators  
+  - `1` = Primary Key  
+  - `2` = Foreign Key  
 - **Row 3+**: Data rows to generate `INSERT` statements
 
 Foreign keys without known reference tables will be marked with `<Placeholder>`.
 
 ---
-##💡 Features
-✅ CSV Interpretation
-Header row becomes SQL column names.
-
-Second row is metadata for primary (1) or foreign (2) keys.
-
-Data from the third row onward will be transformed into SQL INSERT statements.
-
-✅ SQL Generation
-CREATE TABLE generation includes:
-
-Primary key constraints
-
-Placeholder for unknown foreign key constraints
-
-Basic type inference (e.g., INT, VARCHAR)
-
-INSERT INTO for all valid rows following the second.
-
-✅ UI Features (HTML)
-File upload or CSV text paste area
-
-"Generate SQL" button
-
-Output displayed in a read-only textbox
-
-"Copy" button to copy the result for use in SQL IDEs
-
-⚙️ Planned Enhancements
- Auto-detect datatype based on data rows
-
- Allow user-defined foreign key relationships
-
- Optional checkbox to auto-generate DROP TABLE IF EXISTS
-
- Light/dark UI theme
-
- Export SQL to file
-
-📦 Requirements
-Python 3.8+
-Flask
-Pandas
 
 ## 📁 Project Structure
 
@@ -79,7 +36,107 @@ CSVtoSQLCreate/
 ├── .gitignore                   # Ignoring .pyc, env, etc.
 ├── README.md                    # This documentation
 └── requirements.txt             # Python package dependencies
+```
+
 ---
 
+## 💡 Features
 
+### ✅ CSV Interpretation
+- **Header row** becomes SQL column names.
+- **Second row** is metadata for primary (`1`) or foreign (`2`) keys.
+- Data from the **third row onward** will be transformed into SQL `INSERT` statements.
 
+### ✅ SQL Generation
+- **CREATE TABLE** generation includes:
+  - Primary key constraints
+  - Placeholder for unknown foreign key constraints
+  - Basic type inference (e.g., INT, VARCHAR)
+- **INSERT INTO** for all valid rows following the second.
+
+### ✅ UI Features (HTML)
+- File upload or CSV text paste area
+- "Generate SQL" button
+- Output displayed in a read-only textbox
+- "Copy" button to copy the result for use in SQL IDEs
+
+---
+
+## ⚙️ Planned Enhancements
+
+- [ ] Auto-detect datatype based on data rows
+- [ ] Allow user-defined foreign key relationships
+- [ ] Optional checkbox to auto-generate `DROP TABLE IF EXISTS`
+- [ ] Light/dark UI theme
+- [ ] Export SQL to file
+
+---
+
+## 📦 Requirements
+
+- Python 3.8+
+- Flask
+- Pandas
+
+Install with:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🚀 Getting Started
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/your-org/CSVtoSQLCreate.git
+   cd CSVtoSQLCreate
+   ```
+
+2. Run the application:
+   ```bash
+   python app/main.py
+   ```
+
+3. Open a browser and visit:
+   ```
+   http://localhost:5000
+   ```
+
+---
+
+## 📌 Example Input CSV (`example/sample.csv`)
+
+```csv
+id,name,department_id
+1,1,2
+101,John,10
+102,Jane,20
+```
+
+Would generate:
+
+```sql
+CREATE TABLE my_table (
+    id INT PRIMARY KEY,
+    name VARCHAR(255),
+    department_id INT -- FOREIGN KEY <Placeholder>
+);
+
+INSERT INTO my_table (id, name, department_id) VALUES
+(101, 'John', 10),
+(102, 'Jane', 20);
+```
+
+---
+
+## 👷 Author & Maintainers
+
+This project is maintained by your internal software development team. Contact the maintainer for contribution access or issue reporting.
+
+---
+
+## 📄 License
+
+MIT License (or applicable internal license)
