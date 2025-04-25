@@ -17,27 +17,6 @@ This tool is built to streamline the process of database initialization from spr
 Foreign keys without known reference tables will be marked with `<Placeholder>`.
 
 ---
-
-## 📁 Project Structure
-
-```plaintext
-CSVtoSQLCreate/
-├── app/
-│   ├── __init__.py              # Python package init
-│   ├── main.py                  # Flask app entry point and routing
-│   ├── parser.py                # Logic to parse CSV and generate SQL
-│   ├── utils.py                 # Type inference, placeholder logic, etc.
-├── templates/
-│   └── index.html               # HTML form for upload and text paste
-├── static/
-│   └── style.css                # Optional: simple CSS styling
-├── example/
-│   └── sample.csv               # Example CSV for reference/testing
-├── .gitignore                   # Ignoring .pyc, env, etc.
-├── README.md                    # This documentation
-└── requirements.txt             # Python package dependencies
-```plaintext
----
 ##💡 Features
 ✅ CSV Interpretation
 Header row becomes SQL column names.
@@ -81,6 +60,27 @@ Output displayed in a read-only textbox
 Python 3.8+
 Flask
 Pandas
+
+## 📁 Project Structure
+
+```plaintext
+CSVtoSQLCreate/
+├── app/
+│   ├── __init__.py              # Python package init
+│   ├── main.py                  # Flask app entry point and routing
+│   ├── parser.py                # Logic to parse CSV and generate SQL
+│   ├── utils.py                 # Type inference, placeholder logic, etc.
+├── templates/
+│   └── index.html               # HTML form for upload and text paste
+├── static/
+│   └── style.css                # Optional: simple CSS styling
+├── example/
+│   └── sample.csv               # Example CSV for reference/testing
+├── .gitignore                   # Ignoring .pyc, env, etc.
+├── README.md                    # This documentation
+└── requirements.txt             # Python package dependencies
+```plaintext
+---
 
 
 
