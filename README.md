@@ -37,8 +37,8 @@ CSVtoSQLCreate/
 ├── README.md                    # This documentation
 └── requirements.txt             # Python package dependencies
 
-
-💡 Features
+---
+##💡 Features
 ✅ CSV Interpretation
 Header row becomes SQL column names.
 
