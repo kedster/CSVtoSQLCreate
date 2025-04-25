@@ -79,7 +79,6 @@ CSVtoSQLCreate/
 ├── .gitignore                   # Ignoring .pyc, env, etc.
 ├── README.md                    # This documentation
 └── requirements.txt             # Python package dependencies
-```plaintext
 ---
 
 
