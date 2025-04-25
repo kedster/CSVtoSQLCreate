@@ -36,3 +36,51 @@ CSVtoSQLCreate/
 ├── .gitignore                   # Ignoring .pyc, env, etc.
 ├── README.md                    # This documentation
 └── requirements.txt             # Python package dependencies
+
+
+💡 Features
+✅ CSV Interpretation
+Header row becomes SQL column names.
+
+Second row is metadata for primary (1) or foreign (2) keys.
+
+Data from the third row onward will be transformed into SQL INSERT statements.
+
+✅ SQL Generation
+CREATE TABLE generation includes:
+
+Primary key constraints
+
+Placeholder for unknown foreign key constraints
+
+Basic type inference (e.g., INT, VARCHAR)
+
+INSERT INTO for all valid rows following the second.
+
+✅ UI Features (HTML)
+File upload or CSV text paste area
+
+"Generate SQL" button
+
+Output displayed in a read-only textbox
+
+"Copy" button to copy the result for use in SQL IDEs
+
+⚙️ Planned Enhancements
+ Auto-detect datatype based on data rows
+
+ Allow user-defined foreign key relationships
+
+ Optional checkbox to auto-generate DROP TABLE IF EXISTS
+
+ Light/dark UI theme
+
+ Export SQL to file
+
+📦 Requirements
+Python 3.8+
+Flask
+Pandas
+
+
+
