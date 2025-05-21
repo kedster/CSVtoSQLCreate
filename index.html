@@ -11,6 +11,10 @@
     <h1>CSV to SQL CREATE Tool</h1>
     <label for="csvInput">Paste your CSV here:</label>
     <textarea id="csvInput" rows="10" placeholder="Paste your CSV here..."></textarea>
+    <div style="margin: 10px 0;">
+      <label for="csvFile">Or upload a CSV file:</label>
+      <input type="file" id="csvFile" accept=".csv,text/csv" />
+    </div>
     <button id="generateBtn">Generate SQL</button>
     <label for="sqlOutput">CREATE SQL Statement:</label>
     <textarea id="sqlOutput" rows="10" readonly placeholder="Your SQL output will appear here..."></textarea>

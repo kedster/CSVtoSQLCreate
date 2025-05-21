@@ -9,12 +9,13 @@ document.getElementById('csvFile').addEventListener('change', function () {
   const file = this.files[0];
   if (!file) return;
 
-  Papa.parse(file, {
-    complete: function(results) {
-      const data = results.data.map(row => row.map(cell => cell.trim()));
-      generateSQLFromData(data);
-    }
-  });
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const csvText = e.target.result;
+    document.getElementById('csvInput').value = csvText;
+    generateSQL(csvText);
+  };
+  reader.readAsText(file);
 });
 
 document.getElementById('copyBtn').addEventListener('click', () => {
@@ -55,5 +56,5 @@ function generateSQLFromData(data) {
 }
 
 function inferType(values) {
-  return values.every(val => /^\\d+$/.test(val)) ? 'INT' : 'VARCHAR(255)';
+  return values.every(val => /^\d+$/.test(val)) ? 'INT' : 'VARCHAR(255)';
 }
