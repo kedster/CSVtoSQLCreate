@@ -17,7 +17,7 @@ A simple web tool that converts CSV column definitions into a SQL `CREATE TABLE`
 
 1. **Clone or Download the Repository**
    ```sh
-   git clone https://github.com/yourusername/CSVtoSQLCreate.git
+   git clone https://github.com/kedster/CSVtoSQLCreate.git
    cd CSVtoSQLCreate
    ```
 
